@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM openvino/ubuntu20_dev:latest
+FROM openvino/ubuntu20_dev:2022.1.0
 
 USER root
 
@@ -11,5 +11,10 @@ RUN apt-get update -qq && \
     build-essential git nano wget zip unzip cmake pkg-config \
     ffmpeg libsm6 libxext6 && \
     rm -rf /var/cache/apk/*
+
+# build opencv
+RUN cd /opt/intel/openvino/extras/scripts/ && sh download_opencv.sh
+
+WORKDIR /opt/intel/openvino
 
 ENTRYPOINT [ "bash" ]
