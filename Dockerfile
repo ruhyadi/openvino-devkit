@@ -12,9 +12,9 @@ RUN apt-get update -qq && \
     ffmpeg libsm6 libxext6 && \
     rm -rf /var/cache/apk/*
 
-# build opencv
-RUN cd /opt/intel/openvino/extras/scripts/ && sh download_opencv.sh
-
 WORKDIR /opt/intel/openvino
+
+# setup variables path
+RUN bash setupvars.sh
 
 ENTRYPOINT [ "bash" ]
