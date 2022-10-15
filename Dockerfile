@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM openvino/ubuntu20_dev:2022.1.0
+FROM openvino/ubuntu20_dev:2022.2.0
 
 USER root
 
